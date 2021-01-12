@@ -1,0 +1,9 @@
+#! /usr/bin/env nix-shell
+#! nix-shell -i sh -p go
+#
+set -x
+cd "$(dirname "$0")"
+go build && \
+./rm2pdf  -t templates/A4.pdf "$1"  /tmp/out.pdf && \
+pdftk /tmp/out.pdf multibackground "$1.pdf" output /tmp/out-joined.pdf
+

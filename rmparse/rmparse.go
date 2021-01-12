@@ -251,6 +251,8 @@ func ParseSegment(f *os.File) (Segment, error) {
 		panic(err)
 	}
 
+    sg.Y = sg.Y + 20
+
 	// record maximum segment coordinates
 	if sg.X > ms.X {
 		ms.X = sg.X
